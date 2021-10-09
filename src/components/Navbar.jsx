@@ -4,6 +4,7 @@ import { Button, Menu, Typography, Avatar } from 'antd';
 const Navbar = () => {
 
     const stringy = "something"
+    debugger
     return (
         <div>
         
