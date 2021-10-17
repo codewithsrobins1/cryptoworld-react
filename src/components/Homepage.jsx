@@ -4,6 +4,8 @@ import { Typography, Row, Col, Statistic } from 'antd';
 import { Link } from 'react-router-dom';
 import Cryptocurrencies from '../components/Cryptocurrencies';
 import News from '../components/News';
+import Loader from './Loader';
+
 
 import { useGetCryptosQuery } from '../services/cryptoApi';
 
@@ -14,7 +16,7 @@ const Homepage = () => {
     const { data, isFetching } = useGetCryptosQuery(10);
     const globalStats = data?.data?.stats;
 
-    if(isFetching) return 'Loading...';
+    if (isFetching) return <Loader />;
 
     return (
         <>
@@ -31,14 +33,14 @@ const Homepage = () => {
 
             <div className="home-heading-container">
                 <Title leve={2} className="home-title">Top 10 Cryptocurrencies in the world</Title>
-                <Title leve={3} className="show-more"><Link to="/cryptocurrencies">Show More</Link></Title>
+                <Title level={3} className="show-more"><Link to="/cryptocurrencies">Show more</Link></Title>
             </div>
 
             <Cryptocurrencies simplified />
 
             <div className="home-heading-container">
                 <Title leve={2} className="home-title">Latest Crypto News</Title>
-                <Title leve={3} className="show-more"><Link to="/news">Show More</Link></Title>
+                <Title level={3} className="show-more"><Link to="/cryptocurrencies">Show more</Link></Title>
             </div>
             
             <News simplified />
